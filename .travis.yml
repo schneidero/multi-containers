@@ -9,7 +9,7 @@ script:
     - docker run -e CI=true deshneil/fib-test npm test -- --coverage
 
 after_success:
-    - docker build -t deshneil/fib-client ./client
+    - docker build -t deshneil/fib-client ./fib-client
     - docker build -t deshneil/fib-nginx ./nginx
     - docker build -t deshneil/fib-server ./server
     - docker build -t deshneil/fib-worker ./worker
