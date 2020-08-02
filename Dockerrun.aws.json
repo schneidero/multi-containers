@@ -2,7 +2,7 @@
     "AWSEBDockerrunVersion" : 2,
     "containerDefinitions" : [
         {
-            "name": "fib-client",
+            "name": "client",
             "image": "deshneil/fib-client",
             "hostname": "fib-client",
             "essential": false,
@@ -32,7 +32,7 @@
                     "containerPort": 80
                 }
             ],
-            "links": ["fib-client","server"]
+            "links": ["client","server"]
         }
     ]
 }
