@@ -1,0 +1,34 @@
+{
+    "AWSEBDockerrunVersion" : 2,
+    "containerDefinitions" : [
+        {
+            "name": "fib-client",
+            "image": "deshneil/fib-client",
+            "hostname": "fib-client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "deshneil/fib-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "deshneil/fib-worker",
+            "essential": false
+        },
+        {
+            "name": "nginx",
+            "image": "deshneil/fib-nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["fib-client","server"]
+        }
+    ]
+}
